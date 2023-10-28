@@ -1,0 +1,135 @@
+/**** common styles ****/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #252827;
+    display: grid;
+    /* place-content: center; */
+    height: 100vh;
+    padding: 55px;
+    color: #fff;
+    background-image: url("1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+/* ======================== */
+
+ol, ul{
+    list-style: none;
+}
+.menu{
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    background-image: url(menu.webp);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 50px;
+    z-index: 99;   
+    cursor: pointer;
+    transition: all .2s;
+}
+nav{
+    position: relative;
+    z-index: 9;
+}
+ul{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: all 0.3s;
+}
+ul li{
+    font-size: 30px;
+    line-height: 35px;
+    margin: 30px 0;
+    cursor: pointer;    
+    position: relative;
+    top: 200px;
+    transition: all 0.5s;
+    animation: moveLi 1s 0.4s both;
+    border-bottom: 2px solid transparent;
+}
+ul li:hover{
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+li:nth-child(2){
+    animation-delay: 0.5s;
+}
+li:nth-child(3){
+    animation-delay: 0.6s;
+}
+li:nth-child(4){
+    animation-delay: 0.7s;
+}
+
+.overlay{
+    background: #5f9ea0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    opacity: 0;
+}
+body.open .menu{
+    background-image: url("close.png");
+    background-size: 80%;
+}
+body.open ul{
+    opacity: 1;
+}
+body.open .overlay{
+   animation: showOverlay 0.5s both;
+}
+.overlay{
+    animation: hideOverlay 0.5s both;
+ }
+
+@keyframes showOverlay {
+    0%{
+        width: 50%;
+        height: 50%;
+        opacity: 1;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+@keyframes hideOverlay {
+    0%{
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    100%{
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+@keyframes moveLi {
+    0%{
+        top: 200px;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+    
